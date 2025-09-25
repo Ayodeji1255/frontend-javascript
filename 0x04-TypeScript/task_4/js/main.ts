@@ -4,6 +4,10 @@
 /// <reference path="./subjects/Java.ts" />
 /// <reference path="./subjects/React.ts" />
 
+const cp =["const cpp = new Cpp()"]
+const jv =["const java = new Java()"]
+const rt =["const react = new React()"] 
+
 export const cpp = new Subjects.Cpp();
 export const java = new Subjects.Java();
 export const react = new Subjects.React();
