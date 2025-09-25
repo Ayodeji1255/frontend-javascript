@@ -1,14 +1,98 @@
-type Subjects = 'Math' | 'History';
+interface DirectorInterface {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workDirectorTasks(): string;
+}
+interface TeacherInterface {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workTeacherTasks(): string;
+}
+class Director implements DirectorInterface {
+  salary: number;
 
-function teachClass(todayClass: Subjects): string {
-  if (todayClass === 'Math') {
-    return 'Teaching Math';
+  constructor(salary: number) {
+    this.salary = salary;
   }
-  if (todayClass === 'History') {
-    return 'Teaching History';
+
+  workFromHome(): string {
+    return "Working from home";
   }
-  return 'Subject not found';
+  getCoffeeBreak(): string {
+    return "Getting a coffee break";
+  }
+  workDirectorTasks(): string {
+    return "Getting to director tasks";
+  }
 }
 
-console.log(teachClass('Math'));
-console.log(teachClass('History'));
+class Teacher implements TeacherInterface {
+  salary: number;
+
+  constructor(salary: number) {
+    this.salary = salary;
+  }
+
+  workFromHome(): string {
+    return "Cannot work from home";
+  }
+  getCoffeeBreak(): string {
+    return "Cannot have a break";
+  }
+  workTeacherTasks(): string {
+    return "Getting to work";
+  }
+}
+
+const teacherSalary = new Teacher(200);
+const directorSalary = new Director(500);
+
+let convertToNumber: number;
+const dirctorAverageSalary = 500;
+
+function createEmployee(salary: number | string) {
+ 
+
+  
+
+
+  if (salary < 500) {
+    return new Teacher();
+  } else {
+    return new Director();
+  }
+}
+function isDirector(employee: Director | Teacher): employee is Director {
+  return employee instanceof Director;
+}
+
+function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
+type Subjects = "Math" | "History";
+const teacherArray = ["todayClass:Subjects"];
+function teachClass(todayClass: Subjects) {
+  if (todayClass === "Math") console.log("Teaching Math");
+  if (todayClass === "History") console.log("Teaching History");
+}
+
+const emp1 = createEmployee("$200");
+const emp2 = createEmployee(500);
+const emp3 = createEmployee(100);
+
+
+console.log(createEmployee("$500"));
+console.log(createEmployee(200));
+console.log(createEmployee(200));
+
+console.log(executeWork(createEmployee(100)));
+console.log(executeWork(createEmployee(2000)));
+console.log(executeWork(createEmployee(300)));
+
+teachClass("Math");
+teachClass("History");
