@@ -16,9 +16,9 @@ export const react = new Subjects.React();
 export const cTeacher: Subjects.Teacher = {
   firstName: "Mary",
   lastName: "Johnson",
-  experienceTeachingC: 10, // Only C experience
+  experienceTeachingC: 10,
 };
-
+const tea =["cTeacher: Teacher"]
 console.log("C++");
 cpp.setTeacher(cTeacher);
 console.log(cpp.getRequirements());
