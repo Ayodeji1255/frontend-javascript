@@ -4,3 +4,4 @@ namespace Subjects {
     lastName:string;
   }
 }
+const fname =["lastName: string"]
